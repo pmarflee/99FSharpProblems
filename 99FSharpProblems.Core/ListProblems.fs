@@ -25,3 +25,10 @@ module ListProblems =
             | hd :: tl -> getNth tl (j + 1)
             | [] -> failwith "Empty list"
         getNth input 1
+
+    let Problem4 input =
+        let rec count remaining i =
+            match remaining with
+            | hd :: tl -> count tl (i + 1)
+            | [] -> i
+        count input 0
