@@ -26,3 +26,13 @@ module ListProblemsTests =
         [<Fact>]
         let ``Last but 1 element of list containing elements x,y,z should be y``() =
             ListProblems.Problem2 ['x'..'z'] |> should equal 'y'
+
+    module Problem3Tests =
+
+        [<Fact>]
+        let ``Second element of list containing elements 1,2,3 should be 2``() =
+            ListProblems.Problem3 [1..3] 2 |> should equal 2
+
+        [<Fact>]
+        let ``Fifth element of 'Haskell' should be e``() =
+            ListProblems.Problem3 [for c in "Haskell" -> c] 5 |> should equal 'e'

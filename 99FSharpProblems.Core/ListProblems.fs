@@ -17,3 +17,11 @@ module ListProblems =
             | _ :: tl -> getlastbut1 tl
             | [] -> failwith "Empty list"
         getlastbut1 input
+
+    let Problem3 input i =
+        let rec getNth remaining j =
+            match remaining with
+            | hd :: tl when i = j -> hd
+            | hd :: tl -> getNth tl (j + 1)
+            | [] -> failwith "Empty list"
+        getNth input 1
