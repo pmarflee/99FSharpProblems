@@ -56,3 +56,15 @@ module ListProblemsTests =
         [<Fact>]
         let ``Reverse of list 1,2,3,4 should be 4,3,2,1``() =
             ListProblems.Problem5 <| [1..4] |> should equal [4..-1..1]
+
+    module Problem6Tests =
+
+        [<Fact>]
+        let ``List 1,2,3 is not a palindrome``() =
+            ListProblems.Problem6 [1..3] |> should be False
+
+        let ``'madamimadam' is a palindrome``() =
+            ListProblems.Problem6 <| List.ofSeq "madamimadam" |> should be True
+
+        let ``List 1,2,4,8,16,8,4,2,1 is a palindrome``() =
+            ListProblems.Problem6 [1;2;4;8;16;8;4;2;1] |> should be True

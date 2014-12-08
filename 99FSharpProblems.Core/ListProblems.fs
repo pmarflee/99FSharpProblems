@@ -2,6 +2,11 @@
 
 module ListProblems =
 
+    let rec rev state remaining =
+        match remaining with
+        | [] -> state
+        | hd :: tl -> rev (hd :: state) tl
+
     let Problem1 input =
         let rec getlast remaining =
             match remaining with
@@ -33,9 +38,6 @@ module ListProblems =
             | [] -> i
         count input 0
 
-    let Problem5 input =
-        let rec rev state remaining =
-            match remaining with
-            | [] -> state
-            | hd :: tl -> rev (hd :: state) tl
-        rev [] input
+    let Problem5 input = rev [] input
+
+    let Problem6 input = (rev [] input) = input
