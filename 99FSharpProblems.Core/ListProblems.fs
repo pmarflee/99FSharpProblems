@@ -32,3 +32,10 @@ module ListProblems =
             | hd :: tl -> count tl (i + 1)
             | [] -> i
         count input 0
+
+    let Problem5 input =
+        let rec rev state remaining =
+            match remaining with
+            | [] -> state
+            | hd :: tl -> rev (hd :: state) tl
+        rev [] input

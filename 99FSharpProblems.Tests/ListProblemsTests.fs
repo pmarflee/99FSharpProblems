@@ -7,17 +7,6 @@ open _99FSharpProblems.Core
 
 module ListProblemsTests =
 
-    module String =
-        /// Converts a string into a list of characters.
-        let explode (s:string) =
-            [for c in s -> c]
-
-        /// Converts a list of characters into a string.
-        let implode (xs:char list) =
-            let sb = System.Text.StringBuilder(xs.Length)
-            xs |> List.iter (sb.Append >> ignore)
-            sb.ToString()
-
     module Problem1Tests =
 
         [<Fact>]
@@ -46,7 +35,7 @@ module ListProblemsTests =
 
         [<Fact>]
         let ``Fifth element of 'Haskell' should be e``() =
-            ListProblems.Problem3 (String.explode "Haskell") 5 |> should equal 'e'
+            ListProblems.Problem3 (List.ofSeq "Haskell") 5 |> should equal 'e'
 
     module Problem4Tests =
 
@@ -56,4 +45,14 @@ module ListProblemsTests =
 
         [<Fact>]
         let ``Number of characters in 'Hello, world!' should be 13``() =
-            ListProblems.Problem4 (String.explode "Hello, world!") |> should equal 13
+            ListProblems.Problem4 <| List.ofSeq "Hello, world!" |> should equal 13
+
+    module Problem5Tests =
+
+        [<Fact>]
+        let ``Reverse of 'A man, a plan, a canal, panama!' should be 3``() =
+            ListProblems.Problem5 <| List.ofSeq "A man, a plan, a canal, panama!" |> should equal <| List.ofSeq "!amanap ,lanac a ,nalp a ,nam A"
+
+        [<Fact>]
+        let ``Reverse of list 1,2,3,4 should be 4,3,2,1``() =
+            ListProblems.Problem5 <| [1..4] |> should equal [4..-1..1]
