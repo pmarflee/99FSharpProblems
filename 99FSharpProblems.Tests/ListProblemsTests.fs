@@ -78,4 +78,9 @@ module ListProblemsTests =
             ListProblems.Problem8 ['a'; 'a'; 'a'; 'a'; 'b'; 'c'; 'c'; 'a'; 'a'; 'd'; 'e'; 'e'; 'e'; 'e'] 
             |> should equal ['a'; 'b'; 'c'; 'a'; 'd'; 'e']
 
+    module Problem9Tests = 
 
+        [<Fact>]
+        let ``{Pack list (a a a a b c c a a d e e e e) should return ((a a a a) (b) (c c) (a a) (d) (e e e e))``() =
+            ListProblems.Problem9 ['a'; 'a'; 'a'; 'a'; 'b'; 'c'; 'c'; 'a'; 'a'; 'd'; 'e'; 'e'; 'e'; 'e'] 
+            |> should equal [['a'; 'a'; 'a'; 'a']; ['b']; ['c'; 'c']; ['a'; 'a']; ['d']; ['e'; 'e'; 'e'; 'e']] 

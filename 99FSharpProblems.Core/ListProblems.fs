@@ -49,3 +49,13 @@ module ListProblems =
             | hd :: tl when hd <> elem -> elem :: acc
             | _ -> acc
         List.foldBack compress input []
+
+    let Problem9 input = 
+        let pack elem acc =
+            match acc with
+            | [], lst -> [elem], lst
+            | current, lst when List.head current <> elem -> [elem], current :: lst
+            | current, lst -> elem :: current, lst
+        match (List.foldBack pack input ([],[])) with
+        | [], acc -> acc
+        | current, acc -> current :: acc
