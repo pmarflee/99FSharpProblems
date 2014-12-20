@@ -41,3 +41,11 @@ module ListProblems =
     let Problem5 input = rev [] input
 
     let Problem6 input = (rev [] input) = input
+
+    let Problem8 input = 
+        let compress elem acc =
+            match acc with
+            | [] -> [elem]
+            | hd :: tl when hd <> elem -> elem :: acc
+            | _ -> acc
+        List.foldBack compress input []

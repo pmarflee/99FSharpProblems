@@ -63,8 +63,19 @@ module ListProblemsTests =
         let ``List 1,2,3 is not a palindrome``() =
             ListProblems.Problem6 [1..3] |> should be False
 
+        [<Fact>]
         let ``'madamimadam' is a palindrome``() =
             ListProblems.Problem6 <| List.ofSeq "madamimadam" |> should be True
 
+        [<Fact>]
         let ``List 1,2,4,8,16,8,4,2,1 is a palindrome``() =
             ListProblems.Problem6 [1;2;4;8;16;8;4;2;1] |> should be True
+
+    module Problem8Tests = 
+
+        [<Fact>]
+        let ``Compress list (a a a a b c c a a d e e e e) should return (a b c a d e)``() =
+            ListProblems.Problem8 ['a'; 'a'; 'a'; 'a'; 'b'; 'c'; 'c'; 'a'; 'a'; 'd'; 'e'; 'e'; 'e'; 'e'] 
+            |> should equal ['a'; 'b'; 'c'; 'a'; 'd'; 'e']
+
+
