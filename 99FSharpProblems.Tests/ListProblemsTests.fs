@@ -84,3 +84,10 @@ module ListProblemsTests =
         let ``{Pack list (a a a a b c c a a d e e e e) should return ((a a a a) (b) (c c) (a a) (d) (e e e e))``() =
             ListProblems.Problem9 ['a'; 'a'; 'a'; 'a'; 'b'; 'c'; 'c'; 'a'; 'a'; 'd'; 'e'; 'e'; 'e'; 'e'] 
             |> should equal [['a'; 'a'; 'a'; 'a']; ['b']; ['c'; 'c']; ['a'; 'a']; ['d']; ['e'; 'e'; 'e'; 'e']] 
+
+    module Problem10Tests = 
+
+        [<Fact>]
+        let ``{Pack list (a a a a b c c a a d e e e e) should return ((4 a) (1 b) (2 c) (2 a) (1 d)(4 e))``() =
+            ListProblems.Problem10 <| List.ofSeq "aaaabccaadeeee"
+            |> should equal [(4, 'a'); (1, 'b'); (2, 'c'); (2, 'a'); (1, 'd'); (4, 'e')] 

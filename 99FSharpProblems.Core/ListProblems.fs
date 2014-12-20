@@ -50,12 +50,16 @@ module ListProblems =
             | _ -> acc
         List.foldBack compress input []
 
-    let Problem9 input = 
-        let pack elem acc =
+    let private pack input =
+        let pack' elem acc =
             match acc with
             | [], lst -> [elem], lst
             | current, lst when List.head current <> elem -> [elem], current :: lst
             | current, lst -> elem :: current, lst
-        match (List.foldBack pack input ([],[])) with
+        match (List.foldBack pack' input ([],[])) with
         | [], acc -> acc
         | current, acc -> current :: acc
+
+    let Problem9 input = pack input
+
+    let Problem10 input = pack input |> List.map (fun lst -> List.length lst, List.head lst)
